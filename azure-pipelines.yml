@@ -8,15 +8,17 @@ trigger:
 
 
 pool:
-  vmImage: 'ubuntu-16.04' # examples of other options: 'macOS-10.13', 'vs2017-win2016'
+  vmImage: 'ubuntu-16.04'
+strategy:
+  matrix:
+    node_8_x:
+      node_version: 8.x
+    node_9_x:
+      node_version: 9.x
 
 steps:
 - task: NodeTool@0 
   inputs:
-    versionSpec: '10.x' # replace this value with the version that you need for your project
-   displayName: 'ReadytoInstall Node.js'
+    versionSpec: $(node_version)
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+- script: npm install
