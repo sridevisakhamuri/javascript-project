@@ -11,10 +11,10 @@ pool:
   vmImage: 'ubuntu-16.04' # examples of other options: 'macOS-10.13', 'vs2017-win2016'
 
 steps:
-- task: NodeTool@0
+- task: NodeTool@0 
   inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+    versionSpec: '11.x' # replace this value with the version that you need for your project
+   displayName: 'Ready to Install Node.js'
 
 - script: |
     npm install
